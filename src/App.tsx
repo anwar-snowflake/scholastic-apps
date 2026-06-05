@@ -13,6 +13,7 @@ import { StudentProfile } from "./components/StudentProfile";
 import { Settings } from "./components/Settings";
 import { Support } from "./components/Support";
 import { Login } from "./components/Login";
+import { LandingPage } from "./components/LandingPage";
 import { SearchResults } from "./components/SearchResults";
 import { GoogleGenAI, ThinkingLevel } from "@google/genai";
 import { Brain, Sparkles, X, Loader2, LogOut, Trash2 } from "lucide-react";
@@ -187,6 +188,10 @@ export default function App() {
     }
   };
 
+  if (!isAuthenticated) {
+    return <LandingPage onLoginSuccess={handleLoginSuccess} />;
+  }
+
   return (
     <div className="min-h-screen bg-surface flex print:block">
       <div className="print:hidden">
@@ -229,13 +234,6 @@ export default function App() {
               {renderContent()}
             </motion.div>
           </AnimatePresence>
-
-          {/* Overlay Login jika belum login */}
-          {!isAuthenticated && (
-            <div className="absolute inset-0 z-50 flex items-center justify-center bg-surface/60 backdrop-blur-[2px] print:hidden">
-              <Login onLoginSuccess={handleLoginSuccess} />
-            </div>
-          )}
         </div>
 
         {/* Footer Sederhana */}
