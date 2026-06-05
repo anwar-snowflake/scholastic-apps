@@ -44,3 +44,16 @@
   backdrop-filter: blur(16px);
 }
 
+@media print {
+  body {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    background-color: #ffffff !important;
+  }
+}
+
+@page {
+  size: auto;
+  margin: 15mm 20mm 15mm 20mm;
+}
+

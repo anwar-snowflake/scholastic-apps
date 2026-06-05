@@ -4,7 +4,8 @@ export interface Student {
   id: string;
   name: string;
   nis: string;
-  photoUrl: string;
+  photoUrl?: string;
+  photo_url?: string;
   class: string;
   attendance: Record<string, AttendanceStatus>; // date string -> status
 }
